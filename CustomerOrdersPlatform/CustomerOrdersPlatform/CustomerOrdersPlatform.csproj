@@ -160,6 +160,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -181,6 +182,42 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CustomerModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\OrderDetails\OrderDetailsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderDetailsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\OrderDetails\OrderDetailsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderDetailsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\OrderDetails\OrderDetailsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderDetailsModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\OrderDetails\Order_Details.cs">
+      <DependentUpon>OrderDetailsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Orders\Order.cs">
+      <DependentUpon>OrderModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Orders\OrderModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Orders\OrderModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Orders\OrderModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Persistence\Product\Product.cs">
       <DependentUpon>ProductModel.tt</DependentUpon>
@@ -222,6 +259,26 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CustomerModel.edmx</DependentUpon>
       <LastGenOutput>CustomerModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Persistence\OrderDetails\OrderDetailsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OrderDetailsModel.edmx</DependentUpon>
+      <LastGenOutput>OrderDetailsModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Persistence\OrderDetails\OrderDetailsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OrderDetailsModel.edmx</DependentUpon>
+      <LastGenOutput>OrderDetailsModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Persistence\Orders\OrderModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OrderModel.edmx</DependentUpon>
+      <LastGenOutput>OrderModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Persistence\Orders\OrderModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OrderModel.edmx</DependentUpon>
+      <LastGenOutput>OrderModel.cs</LastGenOutput>
     </Content>
     <Content Include="Persistence\Product\ProductModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -299,6 +356,20 @@
     </EntityDeploy>
     <Content Include="Persistence\Product\ProductModel.edmx.diagram">
       <DependentUpon>ProductModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Persistence\Orders\OrderModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OrderModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Persistence\Orders\OrderModel.edmx.diagram">
+      <DependentUpon>OrderModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Persistence\OrderDetails\OrderDetailsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OrderDetailsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Persistence\OrderDetails\OrderDetailsModel.edmx.diagram">
+      <DependentUpon>OrderDetailsModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
@@ -1074,8 +1145,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Persistence\Orders\" />
     <Folder Include="Views\Customer\" />
+    <Folder Include="Views\Orders\" />
     <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
