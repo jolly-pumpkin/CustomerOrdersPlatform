@@ -1,17 +1,21 @@
 ﻿angular.module('MyApp')
 .controller('OrdersController', function ($scope, OrdersService) {
-    $scope.Contact = null;
-    OrdersService.GetOrders().then(function (d) {
-        $scope.Orders = d.data; // Success
-        console.log(d.data);
-    }, function () {
-        alert('Failed'); // Failed
-    });
-})
+        OrdersService.GetOrders().then(function(d) {
+            $scope.Orders = d.data; 
+            console.log(d.data);
+        });
+        OrdersService.GetOrders().then(function (d) {
+            $scope.Orders = d.data; 
+            console.log(d.data);
+        });
+    })
 .factory('OrdersService', function ($http) {
     var fac = {};
     fac.GetOrders = function () {
         return $http.get('/Orders/GetOrders');
+    }
+    fac.GetProducts = function () {
+        return $http.get('/Products/GetProducts');
     }
     return fac;
 });

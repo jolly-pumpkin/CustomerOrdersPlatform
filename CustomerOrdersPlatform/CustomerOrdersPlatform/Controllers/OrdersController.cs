@@ -20,6 +20,5 @@ namespace CustomerOrdersPlatform.Controllers
             var result = coe.Order_Details.ToList();
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-
     }
 }

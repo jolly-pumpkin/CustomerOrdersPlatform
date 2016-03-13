@@ -1,6 +1,12 @@
 ﻿<div ng-controller="OrdersController">
     <h2>Orders</h2>
+    <button ng-click="CreateOrder()">Create Order</button>
     <table>
+        <tr>
+            <th>Order ID</th>
+            <th>Customer ID</th>
+            <th>Order Date</th>
+        </tr>
         <tr ng-repeat="Order in Orders">
             <td>{{Order.Order_ID}}</td>
             <td>{{Order.Customer_ID}}</td>
