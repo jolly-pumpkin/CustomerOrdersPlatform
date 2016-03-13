@@ -13,7 +13,7 @@ namespace CustomerOrdersPlatform.Controllers
         {
             CustomerOrdersEntities coe = new CustomerOrdersEntities();
             var result = coe.Customers.ToList();
-            return Json(result[0], JsonRequestBehavior.AllowGet);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }
