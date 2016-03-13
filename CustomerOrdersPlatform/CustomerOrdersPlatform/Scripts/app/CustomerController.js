@@ -11,7 +11,7 @@
 .factory('CustomerService', function ($http) {
     var fac = {};
     fac.GetLastContact = function () {
-        return $http.get('/Customers/GetLastCustomer');
+        return $http.get('/Customers/GetCustomers');
     }
     return fac;
 });

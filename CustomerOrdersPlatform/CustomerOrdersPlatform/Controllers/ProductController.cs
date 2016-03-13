@@ -4,15 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CustomerOrdersPlatform.Persistence.Customer;
+using CustomerOrdersPlatform.Persistence.Product;
 
 namespace CustomerOrdersPlatform.Controllers
 {
-    public class CustomersController : Controller
+    public class ProductController : Controller
     {
-        public JsonResult GetCustomers()
+        public JsonResult GetProducts()
         {
-            CustomerOrdersEntities coe = new CustomerOrdersEntities();
-            var result = coe.Customers.ToList();
+            CustomerOrdersEntityProducts coe = new CustomerOrdersEntityProducts();
+            var result = coe.Products.ToList();
             return Json(result, JsonRequestBehavior.AllowGet);
         }
     }

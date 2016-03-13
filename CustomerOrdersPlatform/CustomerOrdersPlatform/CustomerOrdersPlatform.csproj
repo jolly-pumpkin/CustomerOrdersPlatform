@@ -160,6 +160,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -180,6 +181,24 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CustomerModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Product\Product.cs">
+      <DependentUpon>ProductModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Product\ProductModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Product\ProductModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Product\ProductModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -203,6 +222,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CustomerModel.edmx</DependentUpon>
       <LastGenOutput>CustomerModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Persistence\Product\ProductModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ProductModel.edmx</DependentUpon>
+      <LastGenOutput>ProductModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Persistence\Product\ProductModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ProductModel.edmx</DependentUpon>
+      <LastGenOutput>ProductModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -263,6 +292,13 @@
     </EntityDeploy>
     <Content Include="Persistence\Customer\CustomerModel.edmx.diagram">
       <DependentUpon>CustomerModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Persistence\Product\ProductModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ProductModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Persistence\Product\ProductModel.edmx.diagram">
+      <DependentUpon>ProductModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
@@ -1038,8 +1074,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Persistence\Product\" />
+    <Folder Include="Persistence\Orders\" />
     <Folder Include="Views\Customer\" />
+    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
