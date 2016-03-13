@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-using CustomerOrdersPlatform.Persistence.Customer;
 using CustomerOrdersPlatform.Persistence.Product;
 
 namespace CustomerOrdersPlatform.Controllers

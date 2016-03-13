@@ -17,5 +17,10 @@ namespace CustomerOrdersPlatform.Controllers
         {
             return View();
         }
+
+        public ActionResult Orders()
+        {
+            return View();
+        }
     }
 }
