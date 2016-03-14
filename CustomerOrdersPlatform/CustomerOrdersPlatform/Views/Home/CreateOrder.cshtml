@@ -24,7 +24,18 @@
     <br/>
     <div>
         <h2>Current Order</h2>
-        {{SelectedProduct.Name}}
+        <table>
+            <tr>
+                <th>SKU</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+            <tr ng-repeat="Detail in Details track by $index" ng-click="removeDetailLine($index)">
+                <td>{{Detail.SKU}}</td>
+                <td>{{Detail.Name}}</td>
+                <td>{{Detail.Price}}</td>
+            </tr>
+        </table>
     </div>
     <div>
         <div layout="row">
