@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using CustomerOrdersPlatform.Persistence.Customer;
+using CustomerOrdersPlatform.Models.DAL;
 
 namespace CustomerOrdersPlatform.Controllers
 {
@@ -11,9 +11,10 @@ namespace CustomerOrdersPlatform.Controllers
     {
         public JsonResult GetCustomers()
         {
-            CustomerOrdersEntities coe = new CustomerOrdersEntities();
-            var result = coe.Customers.ToList();
-            return Json(result, JsonRequestBehavior.AllowGet);
+            CustomerOrdersPlatformEntities c = new CustomerOrdersPlatformEntities();
+            var result = c.Customers.ToList();
+            var json = Json(result, JsonRequestBehavior.AllowGet);
+            return json;
         }
     }
 }

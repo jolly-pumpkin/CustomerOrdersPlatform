@@ -7,17 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CustomerOrdersPlatform.Persistence.Customer
+namespace CustomerOrdersPlatform.Models.DAL
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class Order_Details
     {
-        public int Customer_ID { get; set; }
-        public string First_Name { get; set; }
-        public string Last_Name { get; set; }
-        public string Phone { get; set; }
-        public string Address { get; set; }
+        public int Detail_ID { get; set; }
+        public int Order_ID { get; set; }
+        public string Product_SKU { get; set; }
+        public int Amount { get; set; }
+    
+        public virtual Order Order { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

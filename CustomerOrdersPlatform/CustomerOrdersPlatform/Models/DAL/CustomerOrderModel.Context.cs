@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CustomerOrdersPlatform.Persistence.Customer
+namespace CustomerOrdersPlatform.Models.DAL
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CustomerOrdersEntities : DbContext
+    public partial class CustomerOrdersPlatformEntities : DbContext
     {
-        public CustomerOrdersEntities()
-            : base("name=CustomerOrdersEntities")
+        public CustomerOrdersPlatformEntities()
+            : base("name=CustomerOrdersPlatformEntities")
         {
         }
     
@@ -26,5 +26,9 @@ namespace CustomerOrdersPlatform.Persistence.Customer
         }
     
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Order_Details> Order_Details { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

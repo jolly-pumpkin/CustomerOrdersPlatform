@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using CustomerOrdersPlatform.Persistence.Orders;
-using CustomerOrdersPlatform.Persistence.OrderDetails;
+using CustomerOrdersPlatform.Models.DAL;
 
 namespace CustomerOrdersPlatform.Controllers
 {
@@ -9,15 +8,15 @@ namespace CustomerOrdersPlatform.Controllers
     {
         public JsonResult GetOrders()
         {
-            CustomerOrdersEntitiesOrders coe = new CustomerOrdersEntitiesOrders();
-            var result = coe.Orders.ToList();
+            CustomerOrdersPlatformEntities c = new CustomerOrdersPlatformEntities();
+            var result = c.Orders.ToList();
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult GetOrderDetails()
         {
-            CustomerOrdersEntitiesOrderDetails coe = new CustomerOrdersEntitiesOrderDetails();
-            var result = coe.Order_Details.ToList();
+            CustomerOrdersPlatformEntities c = new CustomerOrdersPlatformEntities();
+            var result = c.Order_Details.ToList();
             return Json(result, JsonRequestBehavior.AllowGet);
         }
     }

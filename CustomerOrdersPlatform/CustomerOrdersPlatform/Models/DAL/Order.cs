@@ -7,15 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CustomerOrdersPlatform.Persistence.Orders
+namespace CustomerOrdersPlatform.Models.DAL
 {
     using System;
     using System.Collections.Generic;
     
     public partial class Order
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Order()
+        {
+            this.Order_Details = new HashSet<Order_Details>();
+        }
+    
         public int Order_ID { get; set; }
         public int Customer_ID { get; set; }
         public System.DateTime Order_Date { get; set; }
+    
+        public virtual Customer Customer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order_Details> Order_Details { get; set; }
     }
 }

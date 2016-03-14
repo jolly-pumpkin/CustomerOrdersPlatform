@@ -7,16 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CustomerOrdersPlatform.Persistence.OrderDetails
+namespace CustomerOrdersPlatform.Models.DAL
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Order_Details
+    public partial class sysdiagram
     {
-        public int Detail_ID { get; set; }
-        public int Order_ID { get; set; }
-        public string Product_SKU { get; set; }
-        public int Amount { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using CustomerOrdersPlatform.Persistence.Product;
+using CustomerOrdersPlatform.Models.DAL;
 
 namespace CustomerOrdersPlatform.Controllers
 {
@@ -8,8 +8,8 @@ namespace CustomerOrdersPlatform.Controllers
     {
         public JsonResult GetProducts()
         {
-            CustomerOrdersEntityProducts coe = new CustomerOrdersEntityProducts();
-            var result = coe.Products.ToList();
+            CustomerOrdersPlatformEntities c = new CustomerOrdersPlatformEntities();
+            var result = c.Products.ToList();
             return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
