@@ -17,12 +17,12 @@
                 $scope.Customers = callback.data;
             });
             $scope.SelectedProduct = {};
-            $scope.setSelected = function (selectedID) {
-                console.log("picked row");
+            $scope.setSelected = function (index) {
+                console.log(index);
             };
             $scope.CreateOrder = function() {
                 console.log("Creating order");
-                console.log(this.selectedUser);
+                console.log(this.selectedCustomerModel);
                 //OrdersService.CreateOrder();
             };
         }

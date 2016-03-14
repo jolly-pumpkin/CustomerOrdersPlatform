@@ -1,7 +1,7 @@
 ﻿<div ng-controller="CreateOrderController">
     <h1>Create Order</h1>
     <select ng-model="selectedUser">
-        <option ng-repeat="Customer in Customers" value="{{Customers._Customer_ID}}">
+        <option ng-repeat="Customer in Customers" ng-model="selectedCustomerModel">
             {{Customer.First_Name}} {{Customer.Last_Name}}
         </option>
     </select>
@@ -14,7 +14,7 @@
             <th>Description</th>
             <th>Price</th>
         </tr>
-        <tr ng-repeat="Product in Products" ng-click="setSelected(Product.id)" ng-class="{selected: Product.id === idSelectedProduct}">
+        <tr ng-repeat="Product in Products" ng-click="setSelected($index)">
             <td>{{Product.SKU}}</td>
             <td>{{Product.Name}}</td>
             <td>{{Product.Description}}</td>
