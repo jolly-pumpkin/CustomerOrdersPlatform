@@ -6,11 +6,11 @@
             GetOrders: function (){
                 return $http.get('/Orders/GetOrders');
             },
-            CreateOrder: function (order){
+            CreateOrder: function (customerOrder){
                 return $http({
                     url: '/Orders/CreateOrder',
                     method: 'POST',
-                    data: JSON.stringify(order),
+                    data: JSON.stringify(customerOrder),
                     headers: { 'content-type': 'application/json' }
                 });
             }

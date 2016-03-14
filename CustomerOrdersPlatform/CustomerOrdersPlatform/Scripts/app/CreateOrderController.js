@@ -21,8 +21,14 @@
             };
             $scope.CreateOrder = function() {
                 console.log("Creating order");
-                console.log(this.selectedCustomerModel);
-                //OrdersService.CreateOrder();
+                console.log($scope.selectedUser);
+                var customerOrder = {
+                    Order_ID: null,
+                    Customer_ID: $scope.selectedUser,
+                    Date: new Date()
+                };
+                console.log(customerOrder);
+                OrdersService.CreateOrder(customerOrder);
             };
             $scope.removeDetailLine = function (index) {
                 console.log("delete row");

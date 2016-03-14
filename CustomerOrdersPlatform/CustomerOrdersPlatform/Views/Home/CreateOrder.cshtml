@@ -1,26 +1,31 @@
 ﻿<div ng-controller="CreateOrderController">
-    <h1>Create Order</h1>
-    <select ng-model="selectedUser">
-        <option ng-repeat="Customer in Customers" ng-model="selectedCustomerModel">
-            {{Customer.First_Name}} {{Customer.Last_Name}}
-        </option>
-    </select>
- 
-    <h2>Products</h2>
-    <table>
-        <tr>
-            <th>SKU</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-        </tr>
-        <tr ng-repeat="Product in Products" ng-click="setSelected($index)">
-            <td>{{Product.SKU}}</td>
-            <td>{{Product.Name}}</td>
-            <td>{{Product.Description}}</td>
-            <td>{{Product.Price}}</td>
-        </tr>
-    </table>
+    <div>
+        <h2>Customer Selection:</h2>
+        <p>Please select a customer for this order:</p>
+        <select ng-model="selectedUser">
+            <option ng-repeat="Customer in Customers" value="{{Customer.Customer_ID}}">
+                {{Customer.First_Name}} {{Customer.Last_Name}}
+            </option>
+        </select>
+    </div>
+    <div>
+        <h2>Products</h2>
+        <p>Click the product row to add it to your order:</p>
+        <table>
+            <tr>
+                <th>SKU</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+            <tr ng-repeat="Product in Products" ng-click="setSelected($index)">
+                <td>{{Product.SKU}}</td>
+                <td>{{Product.Name}}</td>
+                <td>{{Product.Description}}</td>
+                <td>{{Product.Price}}</td>
+            </tr>
+        </table>
+    </div>
     <br/>
     <div>
         <h2>Current Order</h2>

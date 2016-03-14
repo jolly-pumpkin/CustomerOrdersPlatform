@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using CustomerOrdersPlatform.Models.DAL;
 
@@ -28,6 +29,22 @@ namespace CustomerOrdersPlatform.Controllers
             CustomerOrdersPlatformEntities c = new CustomerOrdersPlatformEntities();
             var result = c.Order_Details.ToList();
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public bool CreateOrder(Order order)
+        {
+            try
+            {
+                CustomerOrdersPlatformEntities c = new CustomerOrdersPlatformEntities();
+                c.Orders.Add(order);
+                c.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+            return true;
         }
     }
 }
