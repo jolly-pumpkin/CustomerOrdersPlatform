@@ -9,8 +9,18 @@ namespace CustomerOrdersPlatform.Controllers
         public JsonResult GetOrders()
         {
             CustomerOrdersPlatformEntities c = new CustomerOrdersPlatformEntities();
-            var result = c.Orders.ToList();
-            return Json(result, JsonRequestBehavior.AllowGet);
+            //var result = c.Orders.ToList();
+            //return Json(result, JsonRequestBehavior.AllowGet);
+
+            var data = c.Orders;
+            var collection = data.Select(order => new
+            {
+                Order_ID = order.Order_ID,
+                Customer_ID = order.Customer_ID,
+                Order_Date = order.Order_Date
+            });
+            var json = Json(collection, JsonRequestBehavior.AllowGet);
+            return json;
         }
 
         public JsonResult GetOrderDetails()
