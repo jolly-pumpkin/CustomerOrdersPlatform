@@ -1,6 +1,11 @@
 ﻿<div ng-controller="CreateOrderController">
     <h1>Create Order</h1>
-    <br/>
+    <select ng-model="selectedUser">
+        <option ng-repeat="Customer in Customers" value="{{Customers._Customer_ID}}">
+            {{Customer.First_Name}} {{Customer.Last_Name}}
+        </option>
+    </select>
+ 
     <h2>Products</h2>
     <table>
         <tr>
@@ -9,46 +14,23 @@
             <th>Description</th>
             <th>Price</th>
         </tr>
-        <tr ng-repeat="Product in Products">
+        <tr ng-repeat="Product in Products" ng-click="setSelected(Product.id)" ng-class="{selected: Product.id === idSelectedProduct}">
             <td>{{Product.SKU}}</td>
             <td>{{Product.Name}}</td>
             <td>{{Product.Description}}</td>
             <td>{{Product.Price}}</td>
         </tr>
     </table>
-    <h2>Customers</h2>
-    <table>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Phone Number</th>
-            <th>Phone Number</th>
-        </tr>
-        <tr ng-repeat="Customer in Customers">
-            <td>{{Customer.First_Name}}</td>
-            <td>{{Customer.Last_Name}}</td>
-            <td>{{Customer.Phone}}</td>
-            <td>{{Customer.Address}}</td>
-        </tr>
-    </table>
+    <br/>
     <div>
-        <form name="myForm">
-            <p>Note that invalid styling only applies if invalid and dirty</p>
-            <md-input-container class="md-block">
-                <label>Favorite Number</label>
-                <md-select name="myModel" ng-model="myModel" required="">
-                    <md-option value="1">One</md-option>
-                    <md-option value="2">Two</md-option>
-                </md-select>
-                <div class="errors" ng-messages="myForm.myModel.$error" ng-if="myForm.$dirty">
-                    <div ng-message="required">Required</div>
-                </div>
-            </md-input-container>
-            <div layout="row">
-                <md-button ng-click="clearValue()" ng-disabled="!myModel" style="margin-right: 20px;">Clear</md-button>
-                <md-button ng-click="save()" ng-disabled="myForm.$invalid" class="md-primary" layout="" layout-align="center end">Save</md-button>
-            </div>
-        </form>
+        <h2>Current Order</h2>
+        {{SelectedProduct.Name}}
+    </div>
+    <div>
+        <div layout="row">
+            <button>Clear</button>
+            <button ng-click="CreateOrder()">Save</button>
+        </div>
     </div>
 </div>
 
