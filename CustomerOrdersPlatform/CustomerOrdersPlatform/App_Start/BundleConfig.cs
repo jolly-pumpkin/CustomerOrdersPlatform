@@ -25,15 +25,18 @@ namespace CustomerOrdersPlatform
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                       "~/Content/angular-material/angular-material.css",
+                      "~/Content/angular-material/angular-material.css",
                       "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                     "~/Scripts/angular.js",
                     "~/Scripts/angular-route.js",
-                    "~/bundles/angular-animate.js",
-                    "~/bundles/angular-aria.js",
-                    "~/bundles/angular-material.js"));
+                    "~/Scripts/angular-messages.js",
+                    "~/Scripts/angular-animate/angular-animate.js",
+                    "~/Scripts/angular-aria/angular-aria.js",
+                    "~/Scripts/angular-material/angular-material.js"));
         }
+
+
     }
 }

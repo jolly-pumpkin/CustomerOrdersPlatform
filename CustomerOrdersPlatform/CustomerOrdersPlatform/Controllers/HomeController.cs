@@ -22,5 +22,11 @@ namespace CustomerOrdersPlatform.Controllers
         {
             return View();
         }
+
+        public ActionResult CreateOrder()
+        {
+            return View();
+        }
+
     }
 }

@@ -325,9 +325,13 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\app\CreateOrderController.js" />
     <Content Include="Scripts\app\CustomerController.js" />
     <Content Include="Scripts\app\MyApp.js" />
     <Content Include="Scripts\app\OrderController.js" />
+    <Content Include="Scripts\app\services\CustomerService.js" />
+    <Content Include="Scripts\app\services\OrderService.js" />
+    <Content Include="Scripts\app\services\ProductService.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
