@@ -6,7 +6,6 @@
         'CustomerService',
         function($scope, OrdersService, ProductService, CustomerService) {
             $scope.Details = [];
-
             ProductService.GetProducts().then(function (callback) {
                 $scope.Products = callback.data;
             });
@@ -14,7 +13,7 @@
                 $scope.Customers = callback.data;
             });
 
-            $scope.setSelected = function (index) {
+            $scope.setSelected = function(index) {
                 Detail = $scope.Products[index];
                 console.log(Detail);
                 $scope.Details.push(Detail);
@@ -22,11 +21,25 @@
             $scope.CreateOrder = function() {
                 console.log("Creating order");
                 console.log($scope.selectedUser);
+                var orderDetails = new Array();
+                for (var i = 0; i < $scope.Details.length; i++) {
+                    var detail = $scope.Details[i];
+                    var record = {
+                        Order_ID: null,
+                        Detail_ID: null,
+                        Product_SKU: detail.SKU,
+                        Amount: 1
+                    };
+                    orderDetails.push(record);
+                };
+
                 var customerOrder = {
                     Order_ID: null,
                     Customer_ID: $scope.selectedUser,
-                    Date: new Date()
+                    Date: new Date(),
+                    Order_Details: orderDetails
                 };
+                
                 console.log(customerOrder);
                 OrdersService.CreateOrder(customerOrder);
             };

@@ -31,7 +31,7 @@ namespace CustomerOrdersPlatform.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public bool CreateOrder(Order order)
+        public bool CreateOrder(Order order, Order_Details orderDetails)
         {
             try
             {

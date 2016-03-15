@@ -10,7 +10,7 @@
                 return $http({
                     url: '/Orders/CreateOrder',
                     method: 'POST',
-                    data: JSON.stringify(customerOrder),
+                    data:JSON.stringify(customerOrder),
                     headers: { 'content-type': 'application/json' }
                 });
             }
