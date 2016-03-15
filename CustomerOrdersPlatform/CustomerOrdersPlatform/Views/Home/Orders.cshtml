@@ -1,15 +1,16 @@
 ﻿<div ng-controller="OrdersController">
     <h2>Orders</h2>
-    <button ng-click="CreateOrder()">Create Order</button>
     <table>
         <tr>
             <th>Order ID</th>
-            <th>Customer ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
             <th>Order Date</th>
         </tr>
-        <tr ng-repeat="Order in Orders">
+        <tr ng-repeat="Order in Orders" ng-click="removeOrder($index)">
             <td>{{Order.Order_ID}}</td>
-            <td>{{Order.Customer_ID}}</td>
+            <td>{{Order.First_Name}}</td>
+            <td>{{Order.Last_Name}}</td>
             <td>{{Customer.Order_Date}}</td>
         </tr>
     </table>

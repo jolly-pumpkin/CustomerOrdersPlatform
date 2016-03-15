@@ -32,10 +32,11 @@
                 </button>
                 @Html.ActionLink("Custom Orders", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse ">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Customers", "Customers", "Home")</li>
                     <li>@Html.ActionLink("Orders", "Orders", "Home")</li>
+                    <li>@Html.ActionLink("CreateOrder", "CreateOrder", "Home")</li>
                 </ul>
             </div>
         </div>

@@ -43,11 +43,11 @@
                 console.log(customerOrder);
                 OrdersService.CreateOrder(customerOrder);
             };
-            $scope.removeDetailLine = function (index) {
+            $scope.removeDetailLine = function(index) {
                 console.log("delete row");
                 console.log(index);
                 $scope.Details.splice(index, 1);
-            }
+            };
 
         }
 ]);

@@ -13,6 +13,15 @@
                     data:JSON.stringify(customerOrder),
                     headers: { 'content-type': 'application/json' }
                 });
+            },
+            RemoveOrder: function (order) {
+                console.log("call to remove order");
+                return $http({
+                    url: '/Orders/RemoveOrder',
+                    method: 'POST',
+                    data: JSON.stringify(order),
+                    headers: { 'content-type': 'application/json' }
+                });
             }
         };
     }]);
