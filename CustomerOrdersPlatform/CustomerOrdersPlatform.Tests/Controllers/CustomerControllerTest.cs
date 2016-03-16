@@ -56,7 +56,7 @@ namespace CustomerOrdersPlatform.Tests.Controllers
             };
             var data = new List<Customer>() {customer1, customer2}.AsQueryable();
             var mockSet = new Mock<DbSet<Customer>>();
-            mockSet.As<IQueryable<Customer>>().Setup(m => m.Provider).Returns(data.Provider);            mockSet.As<IQueryable<Customer>>().Setup(m => m.Expression).Returns(data.Expression);            mockSet.As<IQueryable<Customer>>().Setup(m => m.ElementType).Returns(data.ElementType);            //mockSet.As<IQueryable<Customer>>().Setup(m => m.GetEnumerator()).Returns(0 => data.GetEnumerator());
+            mockSet.As<IQueryable<Customer>>().Setup(m => m.Provider).Returns(data.Provider);            mockSet.As<IQueryable<Customer>>().Setup(m => m.Expression).Returns(data.Expression);            mockSet.As<IQueryable<Customer>>().Setup(m => m.ElementType).Returns(data.ElementType);            mockSet.As<IQueryable<Customer>>().Setup(m => m.GetEnumerator()).Returns(() => data.GetEnumerator());
             var mockContext = new Mock<CustomerOrdersPlatformEntities>();
             mockContext.Setup(c => c.Customers).Returns(mockSet.Object);
             CustomerService cs = new CustomerService(mockContext.Object);
