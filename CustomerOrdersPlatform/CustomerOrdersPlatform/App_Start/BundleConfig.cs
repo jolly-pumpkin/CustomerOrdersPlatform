@@ -26,7 +26,9 @@ namespace CustomerOrdersPlatform
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/angular-material.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css," +
+                      "~/Content/md-data-table.css",
+                      "~/Content/material-design-iconic-font.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                     "~/Scripts/angular.js",
@@ -34,7 +36,8 @@ namespace CustomerOrdersPlatform
                     "~/Scripts/angular-messages.js",
                     "~/Scripts/angular-animate/angular-animate.js",
                     "~/Scripts/angular-aria/angular-aria.js",
-                    "~/Scripts/angular-material/angular-material.js"));
+                    "~/Scripts/angular-material/angular-material.js",
+                    "~/Scripts/md-data-table.js"));
         }
 
 

@@ -1,18 +1,24 @@
 ﻿<div ng-controller="OrdersController">
     <h2>Orders</h2>
-    <table>
-        <tr>
-            <th>Order ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Order Date</th>
-        </tr>
-        <tr ng-repeat="Order in Orders" ng-click="removeOrder($index)">
-            <td>{{Order.Order_ID}}</td>
-            <td>{{Order.First_Name}}</td>
-            <td>{{Order.Last_Name}}</td>
-            <td>{{Customer.Order_Date}}</td>
-        </tr>
-    </table>
+    <md-table-container>
+        <table>
+            <thead>
+                <tr>
+                    <th md-column>Order ID</th>
+                    <th md-column>First Name</th>
+                    <th md-column>Last Name</th>
+                    <th md-column>Order Date</th>
+                </tr>
+            </thead>
+            <tbody md-body>
+                <tr ng-repeat="Order in Orders" ng-click="removeOrder($index)">
+                    <td>{{Order.Order_ID}}</td>
+                    <td>{{Order.First_Name}}</td>
+                    <td>{{Order.Last_Name}}</td>
+                    <td>{{getTimestamp(Customer.Order_Date) | date:'dd/MM/yyyy HH:mm a'}}</td>
+                </tr>
+            </tbody>
+        </table>    
+    </md-table-container>
 </div>
 

@@ -1,16 +1,16 @@
 ﻿angular.module('MyApp')
     .factory('OrdersService', [
     '$http',
-    function($http) {
+    function ($http) {
         return {
-            GetOrders: function (){
+            GetOrders: function () {
                 return $http.get('/Orders/GetOrders');
             },
-            CreateOrder: function (customerOrder){
+            CreateOrder: function (customerOrder) {
                 return $http({
                     url: '/Orders/CreateOrder',
                     method: 'POST',
-                    data:JSON.stringify(customerOrder),
+                    data: JSON.stringify(customerOrder),
                     headers: { 'content-type': 'application/json' }
                 });
             },
@@ -20,6 +20,14 @@
                     url: '/Orders/RemoveOrder',
                     method: 'POST',
                     data: JSON.stringify(order),
+                    headers: { 'content-type': 'application/json' }
+                });
+            },
+            GetOrdersForCustomer: function (customer) {
+                return $http({
+                    url: '/Orders/GetCustomerOrders',
+                    method: 'POST',
+                    data: JSON.stringify(customer),
                     headers: { 'content-type': 'application/json' }
                 });
             }
