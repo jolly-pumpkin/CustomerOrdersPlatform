@@ -25,7 +25,7 @@ namespace CustomerOrdersPlatform
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/angular-material/angular-material.css",
+                      "~/Content/angular-material.css",
                       "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(

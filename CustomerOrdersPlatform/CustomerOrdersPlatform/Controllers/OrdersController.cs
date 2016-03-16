@@ -27,11 +27,32 @@ namespace CustomerOrdersPlatform.Controllers
             return json;
         }
 
-        public JsonResult GetOrderDetails()
+        public JsonResult GetCustomerOrders(Customer customer)
         {
             CustomerOrdersPlatformEntities c = new CustomerOrdersPlatformEntities();
-            var result = c.Order_Details.ToList();
-            return Json(result, JsonRequestBehavior.AllowGet);
+            List<Order> data = c.Orders.ToList();
+            var collection = data.Where(order => order.Customer_ID == customer.Customer_ID).Select(order => new
+            {
+                Order_ID = order.Order_ID,
+                First_Name = order.Customer.First_Name,
+                Last_Name = order.Customer.Last_Name,
+                Order_Date = order.Order_Date
+            });
+            var json = Json(collection, JsonRequestBehavior.AllowGet);
+            return json;
+        }
+
+        public JsonResult GetOrderDetails(Order order)
+        {
+            CustomerOrdersPlatformEntities c = new CustomerOrdersPlatformEntities();
+            List<Order_Details> data = c.Order_Details.ToList();
+            var collection = data.Where(detail => detail.Order_ID == order.Order_ID).Select(detail => new
+            {
+                Product_SKU = detail.Product_SKU,
+                Amount = detail.Amount
+            });
+            var json = Json(collection, JsonRequestBehavior.AllowGet);
+            return json;
         }
 
         public bool RemoveOrder(Order order)

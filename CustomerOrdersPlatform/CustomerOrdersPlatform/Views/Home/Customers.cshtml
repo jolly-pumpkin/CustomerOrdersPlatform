@@ -1,20 +1,53 @@
 ﻿<div ng-controller="CustomerController">
-    <h2>Customers</h2>
-    <div style="font-weight: bold">
-        Contact Details
+    <div>
+        <h2>Customers</h2>
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th>Phone Number</th>
+            </tr>
+            <tr ng-repeat="Customer in Customers" ng-click="showOrders($index)">
+                <td>{{Customer.First_Name}}</td>
+                <td>{{Customer.Last_Name}}</td>
+                <td>{{Customer.Phone}}</td>
+                <td>{{Customer.Address}}</td>
+            </tr>
+        </table>
     </div>
-    <table >
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Phone Number</th>
-            <th>Phone Number</th>
-        </tr>
-        <tr ng-repeat="Customer in Customers">
-            <td>{{Customer.First_Name}}</td>
-            <td>{{Customer.Last_Name}}</td>
-            <td>{{Customer.Phone}}</td>
-            <td>{{Customer.Address}}</td>
-        </tr>
-    </table>
+    <div>
+        <h2>Orders:</h2>
+        <table>
+            <tr>
+                <th>Order ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Order Date</th>
+            </tr>
+            <tr ng-repeat="Order in Orders" ng-click="removeOrder($index)">
+                <td>{{Order.Order_ID}}</td>
+                <td>{{Order.First_Name}}</td>
+                <td>{{Order.Last_Name}}</td>
+                <td>{{Customer.Order_Date}}</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Card with image</span>
+                    <span class="md-subhead">Large</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-lg card-media"></div>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button>Action 1</md-button>
+                <md-button>Action 2</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
 </div>
