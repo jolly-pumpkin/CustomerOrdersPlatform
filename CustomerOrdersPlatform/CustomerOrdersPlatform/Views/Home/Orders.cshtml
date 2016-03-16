@@ -5,17 +5,16 @@
             <thead md-head>
             <tr  md-row colspan="4">
                 <th md-column>Order ID</th>
-                <th md-column>First Name</th>
-                <th md-column>Last Name</th>
+                <th md-column>Name</th>
                 <th md-column>Order Date</th>
             </tr>
             </thead>
             <tbody md-body>
             <tr md-row ng-repeat="Order in Orders">
                 <td md-cell>{{Order.Order_ID}}</td>
-                <td md-cell>{{Order.First_Name}}</td>
-                <td md-cell>{{Order.Last_Name}}</td>
+                <td md-cell>{{Order.First_Name}} {{Order.Last_Name}}</td>
                 <td md-cell>{{Order.Order_Date}}</td>
+                <td>{{Order.Total}}</td>
                 <td>
                     <md-button ng-click="getDetails($index)">Details</md-button>
                 </td>

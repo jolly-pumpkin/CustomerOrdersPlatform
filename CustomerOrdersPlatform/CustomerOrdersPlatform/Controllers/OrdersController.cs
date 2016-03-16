@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web.Mvc;
 using CustomerOrdersPlatform.Models.DAL;
 using Microsoft.Ajax.Utilities;
+using WebGrease.Css.Extensions;
 
 namespace CustomerOrdersPlatform.Controllers
 {
@@ -22,7 +23,8 @@ namespace CustomerOrdersPlatform.Controllers
                 Order_ID = order.Order_ID,
                 First_Name = order.Customer.First_Name,
                 Last_Name = order.Customer.Last_Name,
-                Order_Date = order.Order_Date.ToString().Split(' ')[0]
+                Order_Date = order.Order_Date.ToString().Split(' ')[0],
+                Total = order.Order_Details.Select(detail => detail.Product.Price).ToArray().Sum(x => Convert.ToDecimal(x))
             });
             var json = Json(collection, JsonRequestBehavior.AllowGet);
             return json;
@@ -37,7 +39,8 @@ namespace CustomerOrdersPlatform.Controllers
                 Order_ID = order.Order_ID,
                 First_Name = order.Customer.First_Name,
                 Last_Name = order.Customer.Last_Name,
-                Order_Date = order.Order_Date.ToString().Split(' ')[0]
+                Order_Date = order.Order_Date.ToString().Split(' ')[0],
+                Total = order.Order_Details.Select(detail => detail.Product.Price).ToArray().Sum(x => Convert.ToDecimal(x))
             });
             var json = Json(collection, JsonRequestBehavior.AllowGet);
             return json;
