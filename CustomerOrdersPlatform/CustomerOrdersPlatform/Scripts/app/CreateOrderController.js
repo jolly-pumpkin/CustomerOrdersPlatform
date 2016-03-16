@@ -15,7 +15,6 @@
 
             $scope.setSelected = function(index) {
                 Detail = $scope.Products[index];
-                console.log(Detail);
                 $scope.Details.push(Detail);
             };
 
@@ -24,8 +23,6 @@
             };
 
             $scope.CreateOrder = function() {
-                console.log("Creating order");
-                console.log($scope.selectedUser);
                 var orderDetails = new Array();
                 for (var i = 0; i < $scope.Details.length; i++) {
                     var detail = $scope.Details[i];
@@ -46,13 +43,10 @@
                     Order_Details: orderDetails
                 };
                 
-                console.log(customerOrder);
                 $scope.Details = [];
                 OrdersService.CreateOrder(customerOrder);
             };
             $scope.removeDetailLine = function(index) {
-                console.log("delete row");
-                console.log(index);
                 $scope.Details.splice(index, 1);
             };
 

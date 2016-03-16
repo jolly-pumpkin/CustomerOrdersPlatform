@@ -23,8 +23,6 @@
                 });
             },
             GetOrderDetails: function(order) {
-                console.log('making call');
-                console.log(order);
                 return $http({
                     url: '/Orders/GetOrderDetails',
                     method: 'POST',
