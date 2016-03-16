@@ -15,7 +15,7 @@ namespace CustomerOrdersPlatform.Models
             _context = context;
         }
 
-        public object GetOrders()
+        public List<object> GetOrders()
         {
             List<Order> data = _context.Orders.ToList();
             var collection = data.Select(order => new
@@ -25,11 +25,11 @@ namespace CustomerOrdersPlatform.Models
                 Last_Name = order.Customer.Last_Name,
                 Order_Date = order.Order_Date.ToString().Split(' ')[0],
                 Total = order.Order_Details.Select(detail => detail.Product.Price).ToArray().Sum(x => Convert.ToDecimal(x))
-            });
+            }).ToList<object>();
             return collection;
         }
 
-        public Object GetCustomerOrders(Customer customer)
+        public List<object> GetCustomerOrders(Customer customer)
         {
             List<Order> data = _context.Orders.ToList();
             var collection = data.Where(order => order.Customer_ID == customer.Customer_ID).Select(order => new
@@ -39,11 +39,11 @@ namespace CustomerOrdersPlatform.Models
                 Last_Name = order.Customer.Last_Name,
                 Order_Date = order.Order_Date.ToString().Split(' ')[0],
                 Total = order.Order_Details.Select(detail => detail.Product.Price).ToArray().Sum(x => Convert.ToDecimal(x))
-            });
+            }).ToList<object>();
             return collection;
         }
 
-        public object GetOrderDetails(Order order)
+        public List<object> GetOrderDetails(Order order)
         {
             List<Order_Details> data = _context.Order_Details.ToList();
             var collection = data.Where(detail => detail.Order_ID == order.Order_ID).Select(detail => new
@@ -55,7 +55,7 @@ namespace CustomerOrdersPlatform.Models
                     Description = detail.Product.Description,
                     Price = detail.Product.Price
                 }
-            });
+            }).ToList<object>();
             return collection;
         }
 

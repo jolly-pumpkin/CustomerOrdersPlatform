@@ -15,7 +15,7 @@ namespace CustomerOrdersPlatform.Models
             _context = context;
         }
 
-        public object GetCustomers()
+        public List<object> GetCustomers()
         {
             var data = _context.Customers;
             var collection = data.Select(customer => new
@@ -25,9 +25,22 @@ namespace CustomerOrdersPlatform.Models
                 Last_Name = customer.Last_Name,
                 Phone = customer.Phone,
                 Address = customer.Address
-            });
+            }).ToList<Object>();
             return collection;
         }
 
+        public bool CreateCustomer(Customer customer)
+        {
+            try
+            {
+                _context.Customers.Add(customer);
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
