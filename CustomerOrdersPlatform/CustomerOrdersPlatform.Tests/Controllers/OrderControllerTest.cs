@@ -36,7 +36,8 @@ namespace CustomerOrdersPlatform.Tests.Controllers
 
             OrderService os = new OrderService(mockContext.Object);
             os.CreateOrder(order);
-            mockSet.Verify(m => m.Add(It.IsAny<Order>()), Times.Once);            mockContext.Verify(m => m.SaveChanges(), Times.Once);
+            mockSet.Verify(m => m.Add(It.IsAny<Order>()), Times.Once);
+            mockContext.Verify(m => m.SaveChanges(), Times.Once);
         }
 
         [TestMethod]
@@ -67,7 +68,10 @@ namespace CustomerOrdersPlatform.Tests.Controllers
             order2.Customer = c2;
 
             var data = new List<Order>() {order1, order2}.AsQueryable();
-            var mockSet = new Mock<DbSet<Order>>();            mockSet.As<IQueryable<Order>>().Setup(m => m.Provider).Returns(data.Provider);            mockSet.As<IQueryable<Order>>().Setup(m => m.Expression).Returns(data.Expression);            mockSet.As<IQueryable<Order>>().Setup(m => m.ElementType).Returns(data.ElementType);
+            var mockSet = new Mock<DbSet<Order>>();
+            mockSet.As<IQueryable<Order>>().Setup(m => m.Provider).Returns(data.Provider);
+            mockSet.As<IQueryable<Order>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockSet.As<IQueryable<Order>>().Setup(m => m.ElementType).Returns(data.ElementType);
             mockSet.As<IQueryable<Order>>().Setup(m => m.GetEnumerator()).Returns(() => data.GetEnumerator());
 
             var mockContext = new Mock<CustomerOrdersPlatformEntities>();
@@ -105,14 +109,18 @@ namespace CustomerOrdersPlatform.Tests.Controllers
             order2.Customer = c2;
 
             var data = new List<Order>() { order1, order2 }.AsQueryable();
-            var mockSet = new Mock<DbSet<Order>>();            mockSet.As<IQueryable<Order>>().Setup(m => m.Provider).Returns(data.Provider);            mockSet.As<IQueryable<Order>>().Setup(m => m.Expression).Returns(data.Expression);            mockSet.As<IQueryable<Order>>().Setup(m => m.ElementType).Returns(data.ElementType);
+            var mockSet = new Mock<DbSet<Order>>();
+            mockSet.As<IQueryable<Order>>().Setup(m => m.Provider).Returns(data.Provider);
+            mockSet.As<IQueryable<Order>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockSet.As<IQueryable<Order>>().Setup(m => m.ElementType).Returns(data.ElementType);
             mockSet.As<IQueryable<Order>>().Setup(m => m.GetEnumerator()).Returns(() => data.GetEnumerator());
 
             var mockContext = new Mock<CustomerOrdersPlatformEntities>();
             mockContext.Setup(c => c.Orders).Returns(mockSet.Object);
             OrderService os = new OrderService(mockContext.Object);
             var result = os.RemoveOrder(order1);
-            mockSet.Verify(m => m.Remove(It.IsAny<Order>()), Times.Once);            mockContext.Verify(m => m.SaveChanges(), Times.Once);
+            mockSet.Verify(m => m.Remove(It.IsAny<Order>()), Times.Once);
+            mockContext.Verify(m => m.SaveChanges(), Times.Once);
             Assert.IsTrue(result);
         }
 
@@ -124,14 +132,26 @@ namespace CustomerOrdersPlatform.Tests.Controllers
                 Detail_ID = 1,
                 Order_ID = 1,
             };
-            Product product1 = new Product()            {                SKU = "asd-123",                Name = "widget",                Description = "fake awesome",                Price = 9.99m            };
+            Product product1 = new Product()
+            {
+                SKU = "asd-123",
+                Name = "widget",
+                Description = "fake awesome",
+                Price = 9.99m
+            };
             details1.Product = product1;
             Order_Details details2 = new Order_Details()
             {
                 Detail_ID = 2,
                 Order_ID = 1,
             };
-            Product product2 = new Product()            {                SKU = "dfa-132",                Name = "table",                Description = "round wood table",                Price = 199.50m            };
+            Product product2 = new Product()
+            {
+                SKU = "dfa-132",
+                Name = "table",
+                Description = "round wood table",
+                Price = 199.50m
+            };
             details2.Product = product2;
             Order order1 = new Order()
             {
@@ -141,7 +161,10 @@ namespace CustomerOrdersPlatform.Tests.Controllers
             order1.Order_Details.Add(details1);
 
             var data = new List<Order_Details>() { details1, details2 }.AsQueryable();
-            var mockSet = new Mock<DbSet<Order_Details>>();            mockSet.As<IQueryable<Order_Details>>().Setup(m => m.Provider).Returns(data.Provider);            mockSet.As<IQueryable<Order_Details>>().Setup(m => m.Expression).Returns(data.Expression);            mockSet.As<IQueryable<Order_Details>>().Setup(m => m.ElementType).Returns(data.ElementType);
+            var mockSet = new Mock<DbSet<Order_Details>>();
+            mockSet.As<IQueryable<Order_Details>>().Setup(m => m.Provider).Returns(data.Provider);
+            mockSet.As<IQueryable<Order_Details>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockSet.As<IQueryable<Order_Details>>().Setup(m => m.ElementType).Returns(data.ElementType);
             mockSet.As<IQueryable<Order_Details>>().Setup(m => m.GetEnumerator()).Returns(() => data.GetEnumerator());
 
             var mockContext = new Mock<CustomerOrdersPlatformEntities>();
@@ -185,7 +208,10 @@ namespace CustomerOrdersPlatform.Tests.Controllers
             order2.Customer = c2;
 
             var data = new List<Order>() { order1, order2 }.AsQueryable();
-            var mockSet = new Mock<DbSet<Order>>();            mockSet.As<IQueryable<Order>>().Setup(m => m.Provider).Returns(data.Provider);            mockSet.As<IQueryable<Order>>().Setup(m => m.Expression).Returns(data.Expression);            mockSet.As<IQueryable<Order>>().Setup(m => m.ElementType).Returns(data.ElementType);
+            var mockSet = new Mock<DbSet<Order>>();
+            mockSet.As<IQueryable<Order>>().Setup(m => m.Provider).Returns(data.Provider);
+            mockSet.As<IQueryable<Order>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockSet.As<IQueryable<Order>>().Setup(m => m.ElementType).Returns(data.ElementType);
             mockSet.As<IQueryable<Order>>().Setup(m => m.GetEnumerator()).Returns(() => data.GetEnumerator());
 
             var mockContext = new Mock<CustomerOrdersPlatformEntities>();
