@@ -18,6 +18,11 @@
                 console.log(Detail);
                 $scope.Details.push(Detail);
             };
+
+            $scope.ClearOrder = function() {
+                $scope.Details = [];
+            };
+
             $scope.CreateOrder = function() {
                 console.log("Creating order");
                 console.log($scope.selectedUser);
@@ -41,6 +46,7 @@
                 };
                 
                 console.log(customerOrder);
+                $scope.Details = [];
                 OrdersService.CreateOrder(customerOrder);
             };
             $scope.removeDetailLine = function(index) {
