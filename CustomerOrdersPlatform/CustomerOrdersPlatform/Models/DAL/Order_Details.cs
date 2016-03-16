@@ -17,7 +17,6 @@ namespace CustomerOrdersPlatform.Models.DAL
         public int Detail_ID { get; set; }
         public int Order_ID { get; set; }
         public string Product_SKU { get; set; }
-        public int Amount { get; set; }
     
         public virtual Order Order { get; set; }
         public virtual Product Product { get; set; }

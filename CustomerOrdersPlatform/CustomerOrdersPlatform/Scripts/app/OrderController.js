@@ -13,6 +13,7 @@
                 var order = $scope.Orders[index];
                 OrdersService.RemoveOrder(order);
                 $scope.Orders.splice(index, 1);
+                $scope.Order_Details = [];
             };
             $scope.getDetails = function (index) {
                 console.log("getting details");

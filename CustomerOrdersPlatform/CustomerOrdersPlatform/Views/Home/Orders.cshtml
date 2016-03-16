@@ -32,13 +32,15 @@
             <thead md-head>
             <tr>
                 <th md-column>Product SKU</th>
-                <th md-column>Amount</th>
+                <th md-column>Name</th>
+                <th md-column>Price</th>
             </tr>
             </thead>
             <tbody md-body>
             <tr ng-repeat="Order_Detail in Order_Details">
-                <td md-column>{{Order_Detail.Product_SKU}}</td>
-                <td md-column>{{Order_Detail.Amount}}</td>
+                <td md-column>{{Order_Detail.Product.SKU}}</td>
+                <td md-column>{{Order_Detail.Product.Name}}</td>
+                <td md-column>{{Order_Detail.Product.Price}}</td>
             </tr>
             </tbody>
         </table>

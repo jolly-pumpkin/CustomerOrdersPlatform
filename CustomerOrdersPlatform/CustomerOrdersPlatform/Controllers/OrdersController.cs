@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using CustomerOrdersPlatform.Models.DAL;
+using Microsoft.Ajax.Utilities;
 
 namespace CustomerOrdersPlatform.Controllers
 {
@@ -48,8 +49,13 @@ namespace CustomerOrdersPlatform.Controllers
             List<Order_Details> data = c.Order_Details.ToList();
             var collection = data.Where(detail => detail.Order_ID == order.Order_ID).Select(detail => new
             {
-                Product_SKU = detail.Product_SKU,
-                Amount = detail.Amount
+                Product = new Product()
+                {
+                 SKU   = detail.Product.SKU,
+                 Name  = detail.Product.Name,
+                 Description = detail.Product.Description,
+                 Price = detail.Product.Price
+                }
             });
             var json = Json(collection, JsonRequestBehavior.AllowGet);
             return json;

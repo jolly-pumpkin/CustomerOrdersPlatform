@@ -195,7 +195,6 @@
     <Compile Include="Models\DAL\sysdiagram.cs">
       <DependentUpon>CustomerOrderModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

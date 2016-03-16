@@ -25,29 +25,29 @@
     </div>
     <br/>
     <div>
-            <md-table-container>
-                <table>
-                    <thead md-head>
-                        <tr>
-                            <th>Order ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Order Date</th>
-                        </tr>
-                    </thead>
-                    <tbody md-body>
-                        <tr ng-repeat="Order in Orders">
-                            <td>{{Order.Order_ID}}</td>
-                            <td>{{Order.First_Name}}</td>
-                            <td>{{Order.Last_Name}}</td>
-                            <td>{{getTimeStamp(Order.Order_Date) | date:'dd/MM/yyyy HH:mm a'}}</td>
-                            <td>
-                                <md-button ng-click="removeOrder($index)">Delete</md-button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </md-table-container>
+        <md-table-container>
+            <table>
+                <thead md-head>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Order Date</th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr ng-repeat="Order in Orders">
+                        <td>{{Order.Order_ID}}</td>
+                        <td>{{Order.First_Name}}</td>
+                        <td>{{Order.Last_Name}}</td>
+                        <td>{{getTimeStamp(Order.Order_Date) | date:'dd/MM/yyyy HH:mm a'}}</td>
+                        <td>
+                            <md-button ng-click="removeOrder($index)">Delete</md-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
     </div>
    
 </div>

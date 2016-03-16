@@ -32,8 +32,7 @@
                     var record = {
                         Order_ID: null,
                         Detail_ID: null,
-                        Product_SKU: detail.SKU,
-                        Amount: 1
+                        Product_SKU: detail.SKU
                     };
                     orderDetails.push(record);
                 };

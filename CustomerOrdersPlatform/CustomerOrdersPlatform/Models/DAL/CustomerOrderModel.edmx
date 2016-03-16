@@ -22,7 +22,6 @@
           <Property Name="Detail_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Order_ID" Type="int" Nullable="false" />
           <Property Name="Product_SKU" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Amount" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Orders">
           <Key>
@@ -130,7 +129,6 @@
           <Property Name="Detail_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Order_ID" Type="Int32" Nullable="false" />
           <Property Name="Product_SKU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Amount" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_Details_Order_ID" FromRole="Order_Details" ToRole="Orders" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Order_Details_Product_SKU" FromRole="Order_Details" ToRole="Products" />
         </EntityType>
@@ -242,7 +240,6 @@
                 <ScalarProperty Name="Detail_ID" ColumnName="Detail_ID" />
                 <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
                 <ScalarProperty Name="Product_SKU" ColumnName="Product_SKU" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
