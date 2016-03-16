@@ -36,9 +36,10 @@
             </tr>
             </thead>
             <tbody md-body>
-            <tr ng-repeat="Detail in Order_Details"></tr>
-            <td md-column>{{Detial.Product_SKU}}</td>
-            <td md-column>{{Detail.Amount}}</td>
+            <tr ng-repeat="Order_Detail in Order_Details">
+                <td md-column>{{Order_Detail.Product_SKU}}</td>
+                <td md-column>{{Order_Detail.Amount}}</td>
+            </tr>
             </tbody>
         </table>
     </md-table-container>

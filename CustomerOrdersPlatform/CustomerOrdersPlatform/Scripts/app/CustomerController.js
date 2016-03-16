@@ -4,7 +4,8 @@
         '$mdDialog',
         'CustomerService',
         'OrdersService',
-        function ($scope, $mdDialog, CustomerService, OrdersService) {
+        'UtilsService',
+        function ($scope, $mdDialog, CustomerService, OrdersService, UtilsService) {
             $scope.Customers = [];
             $scope.Orders = [];
 
@@ -20,14 +21,16 @@
                     console.log(callback);
                     $scope.Orders = [];
                     $scope.Orders = callback.data;
-
-                    $mdDialog.show({
-                        controller: "CustomerOrdersController",
-                        templateUrl: './Views/Angular/CustomerOrders.html',
-                        parent: angular.element(document.body),
-                        targetEvent: ev
-                    });
                 });
+            };
+            $scope.getTimestamp = function (date) {
+                return UtilsService.getTimestamp(date);
+            };
+            $scope.removeOrder = function (index) {
+                console.log("start");
+                var order = $scope.Orders[index];
+                OrdersService.RemoveOrder(order);
+                $scope.Orders.splice(index, 1);
             };
         }
     ]);
