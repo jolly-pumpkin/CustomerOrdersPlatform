@@ -17,7 +17,7 @@ namespace CustomerOrdersPlatform.Models
 
         public List<object> GetOrders()
         {
-            var data = _context.Orders;
+            List<Order> data = _context.Orders.ToList();
             var collection = data.Select(order => new
             {
                 Order_ID = order.Order_ID,
@@ -31,7 +31,7 @@ namespace CustomerOrdersPlatform.Models
 
         public List<object> GetCustomerOrders(Customer customer)
         {
-            var data = _context.Orders;
+            List<Order> data = _context.Orders.ToList();
             var collection = data.Where(order => order.Customer_ID == customer.Customer_ID).Select(order => new
             {
                 Order_ID = order.Order_ID,
