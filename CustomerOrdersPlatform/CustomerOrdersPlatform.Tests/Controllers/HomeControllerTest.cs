@@ -26,26 +26,40 @@ namespace CustomerOrdersPlatform.Tests.Controllers
         }
 
         [TestMethod]
-        public void About()
+        public void Customer()
         {
             // Arrange
             HomeController controller = new HomeController();
 
             // Act
-            ViewResult result = controller.About() as ViewResult;
+            ViewResult result = controller.Customers() as ViewResult;
 
             // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+            Assert.IsNotNull(result);
+        }
+
+
+        [TestMethod]
+        public void Orders()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+
+            // Act
+            ViewResult result = controller.Orders() as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result);
         }
 
         [TestMethod]
-        public void Contact()
+        public void CreateOrder()
         {
             // Arrange
             HomeController controller = new HomeController();
 
             // Act
-            ViewResult result = controller.Contact() as ViewResult;
+            ViewResult result = controller.CreateOrder() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);

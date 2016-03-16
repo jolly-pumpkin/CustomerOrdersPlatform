@@ -13,18 +13,20 @@ namespace CustomerOrdersPlatform.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Customers()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Orders()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
+
+        public ActionResult CreateOrder()
+        {
+            return View();
+        }
+
     }
 }

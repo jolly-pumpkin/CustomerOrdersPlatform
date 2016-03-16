@@ -1,0 +1,56 @@
+﻿<div ng-controller="CustomerController">
+    <div>
+        <h3>Customers:</h3>
+        <p>Click customer to see their orders:</p>
+    </div>    
+    <div>
+        <md-table-container>
+            <table>
+                <thead md-head>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Phone Number</th>
+                    <th>Phone Number</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="Customer in Customers" ng-click="showOrders($index)">
+                    <td>{{Customer.First_Name}}</td>
+                    <td>{{Customer.Last_Name}}</td>
+                    <td>{{Customer.Phone}}</td>
+                    <td>{{Customer.Address}}</td>
+                </tr>
+                </tbody>
+
+            </table>
+        </md-table-container>
+    </div>
+    <br/>
+    <h3>Orders</h3>
+    <div>
+        <md-table-container>
+            <table>
+                <thead md-head>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Order Date</th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr ng-repeat="Order in Orders">
+                        <td>{{Order.Order_ID}}</td>
+                        <td>{{Order.Order_Date}}</td>
+                        <td>{{Order.Total}}</td>
+                        <td>
+                            <md-button ng-click="removeOrder($index)">Delete</md-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+    </div>
+   
+</div>
