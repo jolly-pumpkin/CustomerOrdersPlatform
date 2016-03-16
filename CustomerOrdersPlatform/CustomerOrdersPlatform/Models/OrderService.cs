@@ -45,7 +45,7 @@ namespace CustomerOrdersPlatform.Models
 
         public List<object> GetOrderDetails(Order order)
         {
-            var data = _context.Order_Details;
+            List<Order_Details> data = _context.Order_Details.ToList();
             var collection = data.Where(detail => detail.Order_ID == order.Order_ID).Select(detail => new
             {
                 Product = new Product()
