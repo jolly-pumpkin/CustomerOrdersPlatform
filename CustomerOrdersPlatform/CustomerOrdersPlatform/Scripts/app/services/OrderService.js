@@ -15,10 +15,17 @@
                 });
             },
             RemoveOrder: function (order) {
-                console.log("call to remove order");
                 return $http({
                     url: '/Orders/RemoveOrder',
                     method: 'POST',
+                    data: JSON.stringify(order),
+                    headers: { 'content-type': 'application/json' }
+                });
+            },
+            GetOrderDetails: function(order) {
+                return $http({
+                    url: '/Orders/GetOrderDetails',
+                    method: 'Get',
                     data: JSON.stringify(order),
                     headers: { 'content-type': 'application/json' }
                 });

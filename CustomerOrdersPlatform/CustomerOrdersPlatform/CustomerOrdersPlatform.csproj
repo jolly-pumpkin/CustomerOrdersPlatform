@@ -262,6 +262,7 @@
     <Content Include="Scripts\app\services\CustomerService.js" />
     <Content Include="Scripts\app\services\OrderService.js" />
     <Content Include="Scripts\app\services\ProductService.js" />
+    <Content Include="Scripts\app\services\UtilService.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
