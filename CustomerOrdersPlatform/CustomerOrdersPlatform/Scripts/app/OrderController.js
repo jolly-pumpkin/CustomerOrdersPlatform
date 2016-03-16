@@ -25,6 +25,7 @@
                 });
             }
             $scope.getTimestamp = function(date){
+                  console.log(date);
                   return UtilsService.getTimestamp(date);
             };
         }

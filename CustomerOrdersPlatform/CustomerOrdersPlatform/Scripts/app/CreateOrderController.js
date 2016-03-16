@@ -37,10 +37,12 @@
                     orderDetails.push(record);
                 };
 
+                var date = new Date();
+
                 var customerOrder = {
                     Order_ID: null,
                     Customer_ID: $scope.selectedUser,
-                    Date: new Date(),
+                    Date: date.getDate(),
                     Order_Details: orderDetails
                 };
                 

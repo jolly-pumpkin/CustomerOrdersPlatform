@@ -3,7 +3,9 @@
     function () {
         return {
             
-            getTimestamp: function(date){
+            getTimestamp: function (date) {
+                console.log("parsing date");
+                console.log(date);
                 var d = new Date(date);
                 var month = String((d.getMonth() + 1));
                 var day = String(d.getDate());
@@ -22,6 +24,7 @@
                     day = '0' + day;
                 }
                 var resultDate = [month, day, year].join('/') + ' ' + strTime;
+                console.log(resultDate);
                 return resultDate;
             }
         };

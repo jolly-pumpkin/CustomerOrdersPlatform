@@ -22,7 +22,7 @@ namespace CustomerOrdersPlatform.Controllers
                 Order_ID = order.Order_ID,
                 First_Name = order.Customer.First_Name,
                 Last_Name = order.Customer.Last_Name,
-                Order_Date = order.Order_Date
+                Order_Date = order.Order_Date.ToString().Split(' ')[0]
             });
             var json = Json(collection, JsonRequestBehavior.AllowGet);
             return json;
@@ -37,7 +37,7 @@ namespace CustomerOrdersPlatform.Controllers
                 Order_ID = order.Order_ID,
                 First_Name = order.Customer.First_Name,
                 Last_Name = order.Customer.Last_Name,
-                Order_Date = order.Order_Date
+                Order_Date = order.Order_Date.ToString().Split(' ')[0]
             });
             var json = Json(collection, JsonRequestBehavior.AllowGet);
             return json;
@@ -78,10 +78,11 @@ namespace CustomerOrdersPlatform.Controllers
             return true;
         }
 
-        public bool CreateOrder(Order order, Order_Details orderDetails)
+        public bool CreateOrder(Order order)
         {
             try
             {
+                order.Order_Date = System.DateTime.Now;
                 CustomerOrdersPlatformEntities c = new CustomerOrdersPlatformEntities();
                 c.Orders.Add(order);
                 c.SaveChanges();
