@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
+using CustomerOrdersPlatform.Models;
 using CustomerOrdersPlatform.Models.DAL;
 using Microsoft.Ajax.Utilities;
 using WebGrease.Css.Extensions;
@@ -13,89 +14,35 @@ namespace CustomerOrdersPlatform.Controllers
     {
         public JsonResult GetOrders()
         {
-            CustomerOrdersPlatformEntities c = new CustomerOrdersPlatformEntities();
-            //var result = c.Orders.ToList();
-            //return Json(result, JsonRequestBehavior.AllowGet);
-
-            List<Order> data = c.Orders.ToList();
-            var collection = data.Select(order => new
-            {
-                Order_ID = order.Order_ID,
-                First_Name = order.Customer.First_Name,
-                Last_Name = order.Customer.Last_Name,
-                Order_Date = order.Order_Date.ToString().Split(' ')[0],
-                Total = order.Order_Details.Select(detail => detail.Product.Price).ToArray().Sum(x => Convert.ToDecimal(x))
-            });
-            var json = Json(collection, JsonRequestBehavior.AllowGet);
+            OrderService os = new OrderService(new CustomerOrdersPlatformEntities());
+            var json = Json(os.GetOrders(), JsonRequestBehavior.AllowGet);
             return json;
         }
 
         public JsonResult GetCustomerOrders(Customer customer)
         {
-            CustomerOrdersPlatformEntities c = new CustomerOrdersPlatformEntities();
-            List<Order> data = c.Orders.ToList();
-            var collection = data.Where(order => order.Customer_ID == customer.Customer_ID).Select(order => new
-            {
-                Order_ID = order.Order_ID,
-                First_Name = order.Customer.First_Name,
-                Last_Name = order.Customer.Last_Name,
-                Order_Date = order.Order_Date.ToString().Split(' ')[0],
-                Total = order.Order_Details.Select(detail => detail.Product.Price).ToArray().Sum(x => Convert.ToDecimal(x))
-            });
-            var json = Json(collection, JsonRequestBehavior.AllowGet);
+            OrderService os = new OrderService(new CustomerOrdersPlatformEntities());
+            var json = Json(os.GetCustomerOrders(customer), JsonRequestBehavior.AllowGet);
             return json;
         }
 
         public JsonResult GetOrderDetails(Order order)
         {
-            CustomerOrdersPlatformEntities c = new CustomerOrdersPlatformEntities();
-            List<Order_Details> data = c.Order_Details.ToList();
-            var collection = data.Where(detail => detail.Order_ID == order.Order_ID).Select(detail => new
-            {
-                Product = new Product()
-                {
-                 SKU   = detail.Product.SKU,
-                 Name  = detail.Product.Name,
-                 Description = detail.Product.Description,
-                 Price = detail.Product.Price
-                }
-            });
-            var json = Json(collection, JsonRequestBehavior.AllowGet);
+            OrderService os = new OrderService(new CustomerOrdersPlatformEntities());
+            var json = Json(os.GetOrderDetails(order), JsonRequestBehavior.AllowGet);
             return json;
         }
 
         public bool RemoveOrder(Order order)
         {
-            try
-            {
-                CustomerOrdersPlatformEntities c = new CustomerOrdersPlatformEntities();
-                c.Orders.Attach(order);
-                c.Orders.Remove(order);
-                c.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-            return true;
+            OrderService os = new OrderService(new CustomerOrdersPlatformEntities());
+            return os.RemoveOrder(order);
         }
 
         public bool CreateOrder(Order order)
         {
-            try
-            {
-                order.Order_Date = System.DateTime.Now;
-                CustomerOrdersPlatformEntities c = new CustomerOrdersPlatformEntities();
-                c.Orders.Add(order);
-                c.SaveChanges();
-            }
-            catch (Exception)
-            {
-
-                return false;
-            }
-            return true;
+            OrderService os = new OrderService(new CustomerOrdersPlatformEntities());
+            return os.CreateOrder(order);
         }
     }
 }

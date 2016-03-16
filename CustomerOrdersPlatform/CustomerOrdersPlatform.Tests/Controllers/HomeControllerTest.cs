@@ -24,5 +24,45 @@ namespace CustomerOrdersPlatform.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [TestMethod]
+        public void Customer()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+
+            // Act
+            ViewResult result = controller.Customers() as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+
+        [TestMethod]
+        public void Orders()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+
+            // Act
+            ViewResult result = controller.Orders() as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void CreateOrder()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+
+            // Act
+            ViewResult result = controller.CreateOrder() as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
     }
 }

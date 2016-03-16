@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CustomerOrdersPlatform.Models;
 using CustomerOrdersPlatform.Models.DAL;
 
 namespace CustomerOrdersPlatform.Controllers
@@ -11,20 +12,8 @@ namespace CustomerOrdersPlatform.Controllers
     {
         public JsonResult GetCustomers()
         {
-            CustomerOrdersPlatformEntities c = new CustomerOrdersPlatformEntities();
-            //List<Customer> customers = c.Customers.ToList();
-            var data = c.Customers;
-
-            var collection = data.Select(customer => new 
-            {
-                Customer_ID = customer.Customer_ID,
-                First_Name = customer.First_Name,
-                Last_Name = customer.Last_Name,
-                Phone = customer.Phone,
-                Address = customer.Address
-            });
-
-            var json = Json(collection, JsonRequestBehavior.AllowGet);
+            CustomerService cs = new CustomerService(new CustomerOrdersPlatformEntities());
+            var json = Json(cs.GetCustomers(), JsonRequestBehavior.AllowGet);
             return json;
         }
     }
